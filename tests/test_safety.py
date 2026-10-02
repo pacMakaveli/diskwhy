@@ -59,7 +59,7 @@ class RemovalBlockerTest(unittest.TestCase):
 
     def test_refuses_outside_allowed_roots(self):
         self.assertIn("outside", safety.removal_blocker("/etc", []))
-        self.assertIn("outside", safety.removal_blocker("/System", []))
+        self.assertIn("outside", safety.removal_blocker("/usr", []))
 
     def test_refuses_protected_directories(self):
         for path in (safety.HOME, f"{safety.HOME}/Library", "/opt/homebrew/var"):
