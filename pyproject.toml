@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diskwhy"
+version = "0.1.0"
+description = "A local web dashboard that shows what is eating your disk and clears it safely."
+readme = "README.md"
+requires-python = ">=3.14"
+license = "LicenseRef-Proprietary"
+license-files = ["LICENSE", "COPYRIGHT"]
+authors = [{ name = "Vlad Radulescu", email = "vlad@studio51.solutions" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+diskwhy = "diskwhy.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["diskwhy*"]
+
+[tool.setuptools.package-data]
+diskwhy = ["static/*.html"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
